@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Posicionamiento Flotante CSS</title>
+	<style>
+		section.cajapadre {
+			border: 2px solid #999;
+			display: inline-block;
+			height: 400px;
+			padding: 10px;
+			vertical-align: top;
+			width: 400px;
+		}
+		article.caja {
+			border: 2px solid #999;
+			line-height: 6em;
+			height: 100px;
+			width: 160px;
+			margin-bottom: 10px;
+			text-align: center;
+		}
+		.flotante {
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<h1>Posicionamiento Flotante CSS</h1>
+	<hr>
+	<section class="cajapadre">
+		<article class="caja">Caja 1</article>
+		<article class="caja">Caja 2</article>
+		<article class="caja">Caja 3</article>
+		Posicionamiento Normal
+	</section>
+	<section class="cajapadre">
+		<article class="caja flotante">Caja 1</article>
+		<article class="caja">Caja 2</article>
+		<article class="caja">Caja 3</article>
+		Posicionamiento Flotante
+	</section>
+</body>
+</html>
