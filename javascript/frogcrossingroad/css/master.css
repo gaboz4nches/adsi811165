@@ -1,0 +1,27 @@
+
+
+section#road {
+	background: transparent url(../imgs/road.png) no-repeat center center;
+	height: 630px;
+	margin: 0px auto;
+	overflow: hidden;
+	width: 960px;
+}
+div#frog {
+	background: transparent url(../imgs/frog.png) no-repeat center center;
+	height: 47px;
+	position: relative;
+	left: 450px;
+	top: 570px;
+	width: 58px;
+
+	-webkit-transition: all 0.1s;
+}
+div#car1 {
+	background: transparent url(../imgs/car01.png) no-repeat center center;
+	height: 70px;
+	position: relative;
+	left: -154px;
+	top: 444px;
+	width: 154px;
+}
