@@ -17,11 +17,28 @@ div#frog {
 
 	-webkit-transition: all 0.1s;
 }
-div#car1 {
-	background: transparent url(../imgs/car01.png) no-repeat center center;
+div#vh1, 
+div#vh2,
+div#vh3 {
 	height: 70px;
 	position: relative;
 	left: -154px;
-	top: 444px;
+	top: 304px;
 	width: 154px;
+}
+
+div.car1 {
+	background: transparent url(../imgs/car01.png) no-repeat center center;
+}
+div.car2 {
+	background: transparent url(../imgs/car02.png) no-repeat center center;
+}
+div.car3 {
+	background: transparent url(../imgs/car03.png) no-repeat center center;
+}
+div.car4 {
+	background: transparent url(../imgs/car04.png) no-repeat center center;
+}
+div.car5 {
+	background: transparent url(../imgs/car05.png) no-repeat center center;
 }
