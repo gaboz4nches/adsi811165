@@ -5,8 +5,35 @@ section#road {
 	height: 630px;
 	margin: 0px auto;
 	overflow: hidden;
+	opacity: 0.6;
 	width: 960px;
+	-webkit-transition: 0.5s all;
+	        transition: 0.5s all;
 }
+
+button#gplay {
+	border: none;
+	background-color: #52751E;
+	color: #fff;
+	font: 1.4em Tahoma;
+	display: block;
+	margin: 0px auto;
+	position: relative;
+	padding: 10px;
+	text-transform: uppercase;
+	top: -340px;
+	width: 200px;
+	-webkit-transition: all 0.5s;
+			transition: all 0.5s;
+}
+button#gplay:hover {
+	background-color: #fff;
+	color: #52751E;
+	cursor: pointer;
+	-webkit-animation: 0.2s btnPlay ease-in-out infinite;
+			animation: 0.2s btnPlay ease-in-out infinite;
+}
+
 div#frog {
 	background: transparent url(../imgs/frog.png) no-repeat center center;
 	height: 47px;
@@ -19,12 +46,22 @@ div#frog {
 }
 div#vh1, 
 div#vh2,
-div#vh3 {
+div#vh3,
+div#vh4,
+div#vh5,
+div#vh6  {
 	height: 70px;
 	position: relative;
 	left: -154px;
 	top: 304px;
 	width: 154px;
+}
+div#vh4,
+div#vh5,
+div#vh6 {
+	top: -186px;
+	-webkit-transform: rotateY(180deg);
+			transform: rotateY(180deg);
 }
 
 div.car1 {
@@ -41,4 +78,14 @@ div.car4 {
 }
 div.car5 {
 	background: transparent url(../imgs/car05.png) no-repeat center center;
+}
+
+
+@-webkit-keyframes btnPlay {
+	0%, 100% {
+		-webkit-transform: scale(1) rotate(0deg);
+	}
+	50% {
+		-webkit-transform: scale(1.2) rotate(-5deg);
+	}
 }
