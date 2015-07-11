@@ -80,6 +80,25 @@ div.car5 {
 	background: transparent url(../imgs/car05.png) no-repeat center center;
 }
 
+ul#lifetime {
+	height: 48px;
+	left: 780px;
+	margin: 0px;
+	position: relative;
+	padding: 0px;
+	top: -454px;
+	width: 164px;
+}
+ul#lifetime li {
+	background: transparent url(../imgs/heart.png) no-repeat center center;
+	display: inline-block;
+	list-style: none;
+	height: 48px;
+	padding: 0px;
+	margin: 0px;
+	width: 52px;
+}
+
 
 @-webkit-keyframes btnPlay {
 	0%, 100% {

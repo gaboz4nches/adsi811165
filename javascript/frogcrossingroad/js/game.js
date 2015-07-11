@@ -10,6 +10,8 @@ var vh4   = document.getElementById('vh4');
 var vh5   = document.getElementById('vh5');
 var vh6   = document.getElementById('vh6');
 
+var lifetime = document.getElementById('lifetime');
+
 var pos1  = -160;
 var pos2  = -160;
 var pos3  = -160;
@@ -80,6 +82,24 @@ function moveFrog() {
   }
 }
 
+function checkCollision() {
+    element1top    = frog.offsetTop;
+    element1left   = frog.offsetLeft;
+    element1right  = Number(frog.offsetLeft) + Number(frog.offsetWidth);
+    element1bottom = Number(frog.offsetTop)  + Number(frog.offsetHeight);
+
+    element2top    = vh1.offsetTop;
+    element2left   = vh1.offsetLeft;
+    element2right  = Number(vh1.offsetLeft) + Number(vh1.offsetWidth);
+    element2bottom = Number(vh1.offsetTop)  + Number(vh1.offsetHeight);
+
+    if (element1right  > element2left   && 
+        element1left   < element2right  && 
+        element1top    < element2bottom && 
+        element1bottom > element2top ) {
+            dieFrog();
+        }
+}
 
 
 function carRandom1() {
@@ -111,6 +131,7 @@ function animCar1() {
   if (pos1 < 960) {
    pos1 += 10;
    vh1.style.left = pos1+'px';
+   checkCollision();
   } else {
     //clearInterval(tcr1);
     vh1.classList.remove('car1','car2','car3','car4','car5');
@@ -177,5 +198,21 @@ function animCar6() {
     cr6 = Math.floor(Math.random() * 5) + 1;
     vh6.classList.add('car'+cr6);
     pos6 = 960;
+  }
+}
+
+function dieFrog() {
+  var nhearts  = document.querySelectorAll('li.heart');
+  var nh = nhearts.length;
+  nh--;
+
+  for (var i = 0; i < nhearts.length; i++) {
+    lifetime.removeChild(lifetime.childNodes[0]);
+  }
+  
+  if(nh < 1) {
+    console.log('Game Over');
+    resetGame();
+    //initGame();
   }
 }
