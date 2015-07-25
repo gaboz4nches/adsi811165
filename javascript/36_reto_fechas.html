@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reto Fechas JS</title>
+	<style>
+		body {
+			background-color: #2D85A2;
+			font-family: Tahoma;
+		}
+		section#box {
+			font-size: 2.5em;
+			margin: 50px auto;
+			text-align: center;
+			color: #fff;
+
+			-webkit-transform: rotate(-24deg);
+					transform: rotate(-24deg);
+		}
+		section#box span {
+			color: #AAC62B;
+			font-size: 5em;
+			display: inline-block;
+
+			-webkit-animation: 0.5s animDias ease-in-out infinite;
+					animation: 0.5s animDias ease-in-out infinite;
+		}
+		@-webkit-keyframes animDias {
+			0%, 100% { 
+				opacity: 1;
+				-webkit-transform: scale(1); 
+			}
+			50% { 
+				opacity: 0.8;
+				-webkit-transform: scale(1.2); 
+			}
+		}
+	</style>
+</head>
+<body id="bdy">
+	<section id="box">
+		<h1>Faltan <span id="dias">22</span> Días</h1>
+		<p>Para WorldSkill Brazil 2015</p>
+	</section>
+
+	<script>
+		var bdy  = document.getElementById('bdy');
+		var dias = document.getElementById('dias');
+
+		bdy.onload = function() {
+
+			var fcha = new Date();
+			var fact = new Date(fcha.getFullYear()+"/"+(fcha.getMonth()+1)+"/"+fcha.getDate());
+
+			var fws  = new Date("2015/08/11");
+			var rfch = fact - fws;
+			rfch = Math.abs((((rfch/1000)/60)/60)/24);
+
+			dias.innerHTML = rfch;
+		}
+	</script>
+</body>
+</html>
