@@ -10,7 +10,10 @@
 			color: #d00;
 			font: 1.6rem Tahoma;
 		}
-		h1 { text-align: center; }
+		h1 { 
+			color: #fff;
+			text-align: center; 
+		}
 		main {
 			margin: 0px auto;
 			width: 820px;
@@ -121,10 +124,12 @@
 			var marca  = document.getElementById('marca').value;
 			var apos   = document.getElementById('apos').value;
 
-			if(apos == 'ainicio') {
-				arrbici.unshift(marca);
-			} else {
-				arrbici.push(marca);
+			if(marca.length > 0) {
+				if(apos == 'ainicio') {
+					arrbici.unshift(marca);
+				} else {
+					arrbici.push(marca);
+				}
 			}
 			document.getElementById('marca').value = '';
 			mostrarBicis();
