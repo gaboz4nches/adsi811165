@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Eventos jQuery</title>
+</head>
+<body>
+  <h1>Eventos jQuery</h1>
+  <hr>
+
+  <h3>Eventos de un Boton</h3>
+  <button>Boton</button>
+  <output id="o1"></output>
+  <br>
+  <h3>Eventos de un Campo de Texto</h3>
+  <input type="text">
+  <output id="o2"></output>
+  <br>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('button').click(function() {
+        $('output#o1').text('Usted presiono el boton');
+      });
+      //--------------
+      $('button').dblclick(function() {
+        $('output#o1').text('Usted hizo doble click');
+      });
+      //--------------
+      $('button').mouseenter(function() {
+        $('output#o1').text('Usted esta encima del boton');
+      });
+      //--------------
+      $('button').mouseleave(function() {
+        $('output#o1').text('Usted se salio del boton');
+      });
+      //--------------
+      $('input').keydown(function() {
+        $('output#o2').text('Usted dejo presionado una tecla');
+      });
+      //--------------
+      $('input').keyup(function() {
+        $('output#o2').text('Usted solto una tecla');
+      });
+      //--------------
+      $('input').keypress(function() {
+        $('output#o2').text('Usted presiono una tecla');
+      });
+      //--------------
+      $('input').focus(function() {
+        $('output#o2').text('Usted enfoco el campo');
+      });
+      //--------------
+      $('input').blur(function() {
+        $('output#o2').text('Usted desenfoco el campo');
+      });
+    });
+  </script>
+</body>
+</html>

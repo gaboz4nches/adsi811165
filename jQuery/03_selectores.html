@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Selectores jQuery</title>
+</head>
+<body>
+  <h1>Selectores jQuery</h1>
+  <hr>
+
+  <table id="tbl">
+    <tr>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+    </tr>
+    <tr>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+    </tr>
+    <tr>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+    </tr>
+    <tr>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+    </tr>
+    <tr>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+    </tr>
+    <tr>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+    </tr>
+    <tr>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+    </tr>
+    <tr>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+    </tr>
+    <tr>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+    </tr>
+    <tr>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+      <td class="bordes relleno">lorem</td>
+    </tr>
+  </table>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        // Selector Universal (Todo)
+        $('*').css('font-family', 'Tahoma');
+        // Selector etiqueta
+        $('table').css({
+          'border': '1px solid gray',
+          'border-collapse': 'collapse',
+          'width': '400px'
+        });
+        // Selector con Identificador
+        $('#tbl').css('margin', '0px auto');
+        // Selector de Clase
+        $('.relleno').css('padding', '10px');
+        $('.bordes').css('border', '1px solid gray');
+        // Selector primer elemento
+        $('tr:first').css('text-transform', 'uppercase');
+        // Selector último elemento
+        $('tr:last').css('color', 'green');
+        // Selector elementos Impares
+        $('tr:even').css('background-color', 'white');
+        // Selector elementos Pares
+        $('tr:odd').css('background-color', 'silver');
+    });
+  </script>
+</body>
+</html>
