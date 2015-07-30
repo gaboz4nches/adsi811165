@@ -12,49 +12,80 @@
   <button>Boton</button>
   <output id="o1"></output>
   <br>
-  <h3>Eventos de un Campo de Texto</h3>
+  <h3>Eventos de Formulario</h3>
   <input type="text">
+  <select>
+    <option value="Colombia">Colombia</option>
+    <option value="Ecuador">Ecuador</option>
+    <option value="Venezuela">Venezuela</option>
+  </select>
   <output id="o2"></output>
   <br>
+  <h3>Eventos de Documento/Ventana</h3>
+  <a href="javascript:;">Cargar Menú</a>
+
+  <output id="o3"></output>
 
   <script src="js/jquery-1.11.3.min.js"></script>
   <script>
     $(document).ready(function() {
+      // Click --------------
       $('button').click(function() {
         $('output#o1').text('Usted presiono el boton');
       });
-      //--------------
+      // DobleClick--------------
       $('button').dblclick(function() {
         $('output#o1').text('Usted hizo doble click');
       });
-      //--------------
+      // MouseEnter--------------
       $('button').mouseenter(function() {
         $('output#o1').text('Usted esta encima del boton');
       });
-      //--------------
+      // MouseLeave--------------
       $('button').mouseleave(function() {
         $('output#o1').text('Usted se salio del boton');
       });
-      //--------------
+      // KeyDown--------------
       $('input').keydown(function() {
         $('output#o2').text('Usted dejo presionado una tecla');
       });
-      //--------------
+      // KeyUp--------------
       $('input').keyup(function() {
         $('output#o2').text('Usted solto una tecla');
       });
-      //--------------
+      // KeyPress--------------
       $('input').keypress(function() {
         $('output#o2').text('Usted presiono una tecla');
       });
-      //--------------
+      // Focus--------------
       $('input').focus(function() {
         $('output#o2').text('Usted enfoco el campo');
       });
-      //--------------
+      // Blur--------------
       $('input').blur(function() {
         $('output#o2').text('Usted desenfoco el campo');
       });
+      // Change--------------
+      $('select').change(function() {
+        $('output#o2').text('El valor del select ha cambiado a: '+$(this).val());
+      });
+      // Load--------------
+      $('a').click(function() {
+        $('output#o3').load('menu.html');
+      });
+      // Unload--------------
+      $(window).unload(function() {
+        alert('Usted recargo la página');
+      });
+      // ReSize--------------
+      $(window).resize(function() {
+        $('output#o3').text('Usted cambio el tamaño de la ventana');
+      });
+      // Scroll--------------
+      $(document).scroll(function() {
+        $('output#o3').text('Usted hizo scroll');
+      });
+
     });
   </script>
 </body>
