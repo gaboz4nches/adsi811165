@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Efectos (animate) jQuery</title>
+  <style>
+    div {
+      border-radius: 50%;
+      color: #fff;
+      font: 2em Tahoma;
+      line-height: 3em;
+      height: 100px;
+      text-align: center;
+      position: relative;
+      width: 100px;
+    }
+    div#bola1 {
+      background-color: #000;
+      top: 200px;
+    }
+    div#bola2 {
+      background-color: #f00;
+      left: 600px;
+      top: -40px;
+    }
+    div#bola3 {
+      background-color: #009;
+      left: 800px;
+      top: 140px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Efectos (animate) jQuery</h1>
+  <hr>
+  <button id="play">Ejecutar</button>
+  <button id="stop">Parar</button>
+
+  <div id="bola1">8</div>
+  <div id="bola2">2</div>
+  <div id="bola3">5</div>
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+  $(document).ready(function() {
+
+    $('body').on('click', '#play', function(event) {
+      event.preventDefault();
+      $('#bola1').animate({'left': '600px', 'top': '160px'}, 1000, function() {
+            $('#bola2').animate({'left': '700px', 'top': '-100px'}, 1000);
+            $('#bola1').animate({'left': '800px', 'top': '240px'}, 1000, function() {
+                $('#bola3').animate({'left': '800px', 'top': '200px'}, 1000);
+                $('#bola1').animate({'left': '860px', 'top': '280px'}, 1000, function() {
+                    $('#bola1').animate({'left': '0px', 'top': '200px'}, 500);
+                    $('#bola2').animate({'left': '600px', 'top': '-40px'}, 500);
+                    $('#bola3').animate({'left': '800px', 'top': '140px'}, 500);
+                });
+              });
+            });
+        });
+
+    $('body').on('click', '#stop', function(event) {
+      event.preventDefault();
+      $('#bola1, #bola2, #bola3').stop();
+    });
+
+  });
+</script>
+</body>
+</html>
