@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Encadenamiento jQuery</title>
+  <style>
+    section#pacman {
+      background-color: #daba14;
+      border-radius: 50%;
+      height: 200px;
+      margin: 100px auto;
+      position: relative;
+      width: 200px;
+    }
+    article {
+      background-color: #35361a;
+      border-radius: 20px;
+      height: 80px;
+      position: relative;
+      width: 40px;
+    }
+    article.eyel {
+      left: 40px;
+      top: 40px;
+    }
+    article.eyer {
+      left: 120px;
+      top: -40px;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Encadenamiento jQuery</h1>
+  <hr>
+  <section id="pacman">
+    <article class="eyel"></article>
+    <article class="eyer"></article>
+  </section>
+
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+      $(document).ready(function() {
+          $('#pacman').animate({'top': '-100px'}, 500)
+                      .animate({'top': '100px'},  250)
+                      .animate({'top': '-100px'}, 500)
+                      .animate({'top': '100px'},  250)
+                      .fadeOut('slow')
+                      .slideDown('fast');
+      });
+  </script>
+</body>
+</html>

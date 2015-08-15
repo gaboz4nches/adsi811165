@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Función CallBack jQuery</title>
+  <style>
+    body {
+      font: 16px Tahoma;
+    }
+    p {
+      border: 10px solid silver;
+      margin: 0px auto;
+      padding: 20px;
+      position: relative;
+      width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Función CallBack jQuery</h1>
+  <hr>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto deleniti nobis corrupti inventore sunt ducimus porro quasi id nulla placeat ad a, nisi fugiat consectetur aperiam assumenda. Quo, alias, quaerat.
+  </p>
+  <button>Ocultar</button>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function() {
+
+      $('button').click(function(event) {
+        if ($(this).text() == 'Ocultar') {
+          $('p').animate({'left': '-1000'}, 1000, function() {
+            alert('Se Oculto el parrafo');
+            $('button').text('Mostrar');
+          });
+        } else {
+          $('p').animate({'left': '0'}, 1000, function() {
+            alert('Se Mostro el parrafo');
+            $('button').text('Ocultar');
+            });
+        }
+      });
+
+    });
+  </script>
+</body>
+</html>
