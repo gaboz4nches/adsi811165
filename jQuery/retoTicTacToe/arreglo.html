@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <output></output>
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $arrwins = [[0, 1, 2], [3, 4, 5], [6, 7, 8],
+                  [0, 3, 6], [1, 4, 7], [2, 5, 8],
+                  [0, 4, 8], [2, 4, 6]
+                 ];
+      $chain = '';
+
+      for ($i = 0; $i < $arrwins.length; $i++) {
+        $chain += '[ ';
+        for ($j = 0; $j < 3; $j++) {
+          $chain += $arrwins[$i][$j]+',';
+        }
+        $chain += ' ]';
+      }
+      $('output').text($chain);
+
+    });
+
+  </script>
+</body>
+</html>
