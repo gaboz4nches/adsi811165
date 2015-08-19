@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>After / Before jQuery</title>
+  <style>
+    html { font-size: 62.5%; }
+    body {
+      background: #5b4761;
+      color: #fff;
+      font: 1.6rem Helvetica;
+    }
+    section#main {
+      margin: 20px auto;
+      padding: 40px;
+      width: 280px;
+    }
+    section#main h1 {
+      background-color: #322636;
+      padding: 10px;
+      text-align: center;
+    }
+    section#main button {
+      border: none;
+      background-color: #567e32;
+      color: #fff;
+      height: 40px;
+      font: 1.4rem Helvetica;
+      width: 137px;
+    }
+    section#main button:hover {
+      background-color: #446626;
+      cursor: pointer;
+    }
+    .redondear {
+      -webkit-border-radius: 100px;
+         -moz-border-radius: 100px;
+          -ms-border-radius: 100px;
+              border-radius: 100px;
+    }
+    section#bikes {
+      margin: 0px auto;
+      width: 200px;
+    }
+    article.bike {
+      background-color: #322636;
+      background-image: url(imgs/bronson.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 90%;
+      display: inline-block;
+      height: 200px;
+      margin: 10px;
+      width: 200px;
+    }
+
+    .animar {
+      -webkit-animation: 0.4s animBike ease-in-out 1;
+         -moz-animation: 0.4s animBike ease-in-out 1;
+          -ms-animation: 0.4s animBike ease-in-out 1;
+              animation: 0.4s animBike ease-in-out 1;
+    }
+
+    @-webkit-keyframes animBike {
+      0% {
+        opacity: 0;
+        -webkit-transform: scale(0) rotateY(-190deg);
+      }
+      80% {
+        opacity: 1;
+        -webkit-transform: scale(1) rotateY(0deg);
+      }
+      90% {
+        opacity: 0.5;
+        -webkit-transform: scale(1.2) rotateY(0deg);
+      }
+      100% {
+        opacity: 1;
+        -webkit-transform: scale(1) rotateY(0deg);
+      }
+    }
+    @-moz-keyframes animBike {
+      0% {
+        opacity: 0;
+        -moz-transform: scale(0) rotateY(-190deg);
+      }
+      80% {
+        opacity: 1;
+        -moz-transform: scale(1) rotateY(0deg);
+      }
+      90% {
+        opacity: 0.5;
+        -moz-transform: scale(1.2) rotateY(0deg);
+      }
+      100% {
+        opacity: 1;
+        -moz-transform: scale(1) rotateY(0deg);
+      }
+    }
+    @-ms-keyframes animBike {
+      0% {
+        opacity: 0;
+        -ms-transform: scale(0) rotateY(-190deg);
+      }
+      80% {
+        opacity: 1;
+        -ms-transform: scale(1) rotateY(0deg);
+      }
+      90% {
+        opacity: 0.5;
+        -ms-transform: scale(1.2) rotateY(0deg);
+      }
+      100% {
+        opacity: 1;
+        -ms-transform: scale(1) rotateY(0deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <section id="main">
+    <h1 class="redondear">After / Before jQuery</h1>
+    <button id="btnBefore" class="redondear"> Adicionar Antes</button>
+    <button id="btnAfter"  class="redondear"> Adicionar Después</button>
+  </section>
+  <section id="bikes">
+    <article class="bike redondear animar"></article>
+  </section>
+
+  <script src='js/jquery-1.11.3.min.js'></script>
+  <script>
+    $(document).ready(function() {
+      $wd = 200;
+      // Before
+      $('#btnBefore').click(function() {
+        $('article.bike:first').before("<article class='bike redondear animar'></article>");
+        checkWidth($wd);
+      });
+      // After
+      $('#btnAfter').click(function() {
+        $('article.bike:last').after("<article class='bike redondear animar'></article>");
+        checkWidth($wd);
+      });
+
+    });
+    function checkWidth(wd) {
+      if(wd < 1024) {
+        $wd += 240;
+        $('section#bikes').width($wd);
+      }
+    }
+  </script>
+</body>
+</html>

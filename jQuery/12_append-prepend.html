@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manipulación DOM (append/prepend)</title>
+  <style>
+    ul#lista li {
+      border: 10px solid #ec9f2a;
+      background: transparent url(imgs/naruto.png) no-repeat center center;
+      background-size: contain;
+      display: inline-block;
+      margin: 0px 10px 10px 0px;
+      height: 200px;
+      width: 200px;
+    }
+    ul#lista li span {
+      background-color: #ec9f2a;
+      display: block;
+      font: 2.5em Tahoma;
+      height: 50px;
+      text-align: center;
+      width: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Manipulación DOM (append/prepend)</h1>
+  <hr>
+
+  <button id="btnIni">Agregar al Inicio</button>
+  <button id="btnFin">Agregar al Final</button>
+  <ul id="lista">
+  </ul>
+
+
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $cont = 1;
+      $('#btnIni').click(function() {
+        $('ul#lista').prepend('<li><span>'+$cont+'</span></li>');
+        $('li').first().hide().fadeIn(1000);
+        $cont++;
+      });
+      $('#btnFin').click(function() {
+        $('ul#lista').append('<li><span>'+$cont+'</span></li>');
+        $('li').last().hide().fadeIn(1000);
+        $cont++;
+      });
+
+    });
+  </script>
+</body>
+</html>
