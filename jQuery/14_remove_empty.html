@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Remove / Empty jQuery</title>
+  <style>
+    html { font-size: 62.5%; }
+    body {
+      background-color: #047d81;
+      color: #90dfe2;
+      font: 1.8rem Helvetica;
+    }
+    fieldset {
+      border: none;
+      margin: 20px auto;
+      padding: 10px;
+      width: 400px;
+    }
+    legend {
+      background-color: #055254;
+      padding: 20px;
+      text-transform: uppercase;
+      width: 400px;
+    }
+    input[type=text],
+    button {
+      border: none;
+      display: block;
+      font: 1.6rem Helvetica;
+      outline: none;
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+    input[type=text] {
+      width: 400px;
+    }
+    button {
+      background-color: #2eb654;
+      color: #fff;
+      width: 440px;
+    }
+    button:hover {
+      background-color: #208b3e;
+      cursor: pointer;
+    }
+    ul#tasks {
+      margin: 10px auto;
+      padding: 0px;
+      width: 400px;
+    }
+    ul#tasks li {
+      border-bottom: 1px dotted #fff;
+      font-size: 1em;
+      list-style: none;
+      padding: 8px;
+      position: relative;
+    }
+    ul#tasks li span {
+      margin-left: 20px;
+    }
+    ul#tasks li a:link,
+    ul#tasks li a:visited {
+      background-color: #822626;
+      color: #fff;
+      padding: 4px;
+      position: absolute;
+      right: 0px;
+      text-align: center;
+      text-decoration: none;
+      width: 20px;
+    }
+    ul#tasks li a:hover {
+      background-color: #a22d2d;
+    }
+    .done {
+      text-decoration: line-through;
+      color: #aaa;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Remove / Empty jQuery</h1>
+  <hr>
+  <fieldset>
+    <legend>TODO LIST</legend>
+    <input type="text" id="task" placeholder="Ingrese Tarea">
+    <button id="btnAdd">Agregar</button>
+  </fieldset>
+
+  <ul id="tasks">
+
+  </ul>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        //----
+        $('#btnAdd').click(function() {
+          $task = $('#task').val();
+          if($task.length > 4) {
+            $('#tasks').append("<li><input type='checkbox'><span>"+$task+"</span><a href='javascript:;'>x</a></li>");
+            $('#task').val('');
+          }
+        });
+        //----
+        $('#tasks').on('click', 'input[type=checkbox]', function(event) {
+          event.preventDefault();
+          $(this).parent().toggleClass('done');
+        });
+        //----
+        $('#tasks').on('click', 'a', function(event) {
+          event.preventDefault();
+          $(this).parent().slideUp(500, function() {
+            $(this).remove();
+          });
+        });
+
+    });
+  </script>
+</body>
+</html>
