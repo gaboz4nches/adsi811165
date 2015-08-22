@@ -77,6 +77,33 @@
       color: #aaa;
       font-style: italic;
     }
+    section#info {
+      background-color: #055254;
+      margin: 10px auto;
+      padding: 20px;
+      position: relative;
+      width: 400px;
+    }
+    section#info h3 {
+      border-bottom: 1px solid #90dfe2;
+      font-weight: normal;
+      margin: 0px 0px 10px 0px;
+      padding-bottom: 10px;
+    }
+
+    button#btnEmpty {
+      background-color: #822626;
+      color: #fff;
+      display: inline;
+      padding: 4px;
+      position: absolute;
+      right: 10px;
+      width: 140px;
+    }
+    button#btnEmpty:hover {
+      background-color: #a22d2d;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -88,35 +115,67 @@
     <button id="btnAdd">Agregar</button>
   </fieldset>
 
-  <ul id="tasks">
+  <section id="info">
+    <h3>Tareas</h3>
+    <span id="tasksIncomplete"></span>
+    <span id="tasksCompleted"></span>
+    <button id="btnEmpty">Eliminar Todo</button>
+  </section>
 
+  <ul id="tasks">
   </ul>
 
   <script src="js/jquery-1.11.3.min.js"></script>
   <script>
     $(document).ready(function() {
         //----
+        $cntComplete  = 0;
+        $cntCompleted = 0;
+        $('#info').hide();
+        //----
         $('#btnAdd').click(function() {
           $task = $('#task').val();
           if($task.length > 4) {
             $('#tasks').append("<li><input type='checkbox'><span>"+$task+"</span><a href='javascript:;'>x</a></li>");
             $('#task').val('');
+            showInfo();
           }
         });
         //----
         $('#tasks').on('click', 'input[type=checkbox]', function(event) {
           event.preventDefault();
           $(this).parent().toggleClass('done');
+          showInfo();
         });
         //----
         $('#tasks').on('click', 'a', function(event) {
           event.preventDefault();
           $(this).parent().slideUp(500, function() {
             $(this).remove();
+            showInfo();
           });
+        });
+        //----
+        $("#info").on('click', '#btnEmpty', function(event) {
+          event.preventDefault();
+          $('#tasks').empty();
+          showInfo();
         });
 
     });
+
+    //----
+    function showInfo() {
+      $cntComplete  = $('#tasks li:not(.done)').length;
+      $cntCompleted = $('#tasks li.done').length;
+      $('#tasksIncomplete').text($cntComplete+' por realizar --');
+      $('#tasksCompleted').text($cntCompleted+' realizadas');
+      $('#info').fadeIn(500);
+      if($cntComplete < 1 && $cntCompleted < 1) {
+        $('#info').hide();
+      }
+    }
+
   </script>
 </body>
 </html>
