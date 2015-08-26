@@ -68,16 +68,24 @@ main nav#gamemenu li {
   height: 100px;
   margin: 20px 0px;
   width: 400px;
-}
-main nav#gamemenu li:hover {
-  cursor: pointer;
+
+  transition: all 0.2s;
 }
 
 main nav#gamemenu li#mode1 {
   background: #2aa7d6 url(../imgs/btn1.png) no-repeat center center;
+  background-size: 100%;
+
 }
 main nav#gamemenu li#mode2 {
   background: #2aa7d6 url(../imgs/btn2.png) no-repeat center center;
+  background-size: 100%;
+
+}
+
+main nav#gamemenu li:hover {
+  background-size: 94% !important;
+  cursor: pointer;
 }
 
 main nav#symbols li {
