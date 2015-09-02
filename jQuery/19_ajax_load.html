@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax (load) jQuery</title>
+</head>
+<body>
+  <h1>Ajax (load) jQuery</h1>
+  <hr>
+  <section id="container">
+  </section>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#container').load('menu.txt', function(response, status, xhr) {
+        if(status == 'success')
+          alert('El contenido se ha cargado con exito...');
+          alert('Contenido'+response);
+      });
+    });
+  </script>
+</body>
+</html>

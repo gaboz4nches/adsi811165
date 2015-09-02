@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dimensiones (Ancho/Alto) jQuery</title>
+  <style>
+
+  section#box {
+    border: 4px dotted #2e9db0;
+    height: 400px;
+    margin: 20px;
+    padding: 10px;
+    width: 600px;
+  }
+  section#box h3 {
+    font: 25px Tahoma;
+    margin-top: 180px;
+    text-align: center;
+  }
+  article#message {
+    background-color: #418a41;
+    color: #fff;
+    font: 20px Tahoma;
+    line-height: 50px;
+    padding: 20px;
+    position: fixed;
+    top: 20px; left: 20px;
+    text-align: center;
+    width: 400px;
+    height: 60px;
+  }
+  </style>
+</head>
+<body>
+  <h1>Dimensiones (Ancho/Alto) jQuery</h1>
+  <hr>
+  <article id="message">
+  </article>
+  <section id="box">
+    <h3></h3>
+  </section>
+  <button id="btn1">Ancho y Alto</button>
+  <button id="btn2">Ancho y Alto (Relleno)</button>
+  <button id="btn3">Ancho y Alto (Borde/Margen/Relleno)</button>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#message').hide();
+      // ----------------
+      $('body').on('click', '#btn1', function(event) {
+        event.preventDefault();
+        $ancho = $('#box').width();
+        $alto  = $('#box').height();
+
+        $('#box h3').text('El ancho es: '+$ancho+
+                          ' - El alto es: '+$alto);
+      });
+      // ----------------
+      $('body').on('click', '#btn2', function(event) {
+        event.preventDefault();
+        $ancho = $('#box').innerWidth();
+        $alto  = $('#box').innerHeight();
+
+        $('#box h3').text('El ancho es: '+$ancho+
+                          ' - El alto es: '+$alto);
+      });
+      // ----------------
+      $('body').on('click', '#btn3', function(event) {
+        event.preventDefault();
+        $ancho = $('#box').outerWidth();
+        $alto  = $('#box').outerHeight();
+
+        $('#box h3').text('El ancho es: '+$ancho+
+                          ' - El alto es: '+$alto);
+      });
+      // ----------------
+      $(window).resize(function(event) {
+        $ancho = $(this).width();
+        $alto  = $(this).height();
+
+        $('#message').hide()
+                     .fadeIn('slow').text('El ancho es: '+$ancho+
+                                          ' - El alto es: '+$alto);
+        setTimeout(function() {
+          $('#message').fadeOut('slow');
+        }, 4000);
+
+      });
+    });
+  </script>
+</body>
+</html>

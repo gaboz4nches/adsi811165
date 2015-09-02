@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clases (addClass, removeClass, toggleClass) jQuery</title>
+  <link rel="stylesheet" href="css/17_master.css">
+</head>
+<body>
+  <button id="btn">Dark-Theme</button>
+    <main id="slider">
+        <section id="slides">
+            <article class="slide1"><figure></figure></article>
+            <article class="slide2 activeSlide"><figure></figure></article>
+            <article class="slide3"><figure></figure></article>
+        </section>
+        <section id="logo"></section>
+        <nav id="controls">
+            <li></li>
+            <li class="active"></li>
+            <li></li>
+        </nav>
+    </main>
+
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // :::::::::::::::::::::::::::::::::::::::::: //
+        $('body').on('click', '#btn', function(event) {
+          event.preventDefault();
+          $('body').toggleClass('darkness');
+          if ($('body').hasClass('darkness')) {
+            $(this).text('Light-Theme');
+          } else {
+            $(this).text('Dark-Theme');
+          }
+        });
+        // :::::::::::::::::::::::::::::::::::::::::: //
+        $zsum = 3;
+        $('.slide1, .slide3').addClass('behindSlide');
+        transitionSlides();
+      });
+
+      function transitionSlides() {
+        setInterval(function() {
+          $slideActual = $('.activeSlide');
+          $btnActual   = $('.active');
+
+          if($('nav#controls li:last').hasClass('active')) {
+            // --- Btn
+            $('li:last').removeClass('active')
+            $('li:first').addClass('active');
+            // --- Slide
+            $('article:last').removeClass('activeSlide').addClass('behindSlide');
+            $('article:first').addClass('activeSlide').removeClass('behindSlide').css('z-index', ++$zsum);
+          } else {
+            // --- Btn
+            $btnActual.removeClass('active')
+            $btnActual.next().addClass('active');
+            // --- Slide
+            $slideActual.removeClass('activeSlide').addClass('behindSlide');
+            $slideActual.next().addClass('activeSlide').removeClass('behindSlide').css('z-index', ++$zsum);
+          }
+        }, 2000);
+      }
+    </script>
+</body>
+</html>

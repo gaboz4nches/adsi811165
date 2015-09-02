@@ -1,0 +1,7 @@
+<nav>
+<li>Inicio</li>
+<li>Nosotros</li>
+<li>Portafolio</li>
+<li>Servicios</li>
+<li>Contacto</li>
+</nav>
