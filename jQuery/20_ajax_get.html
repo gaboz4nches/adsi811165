@@ -30,12 +30,15 @@
         $('#references').hide();
         $vbrand = $(this).val();
 
-        $.get('references.php', {vb: $vbrand}, function(data, textStatus, xhr) {
-          if(textStatus == 'success') {
-            $('#loader').show();
-            loadData(data);
-          }
-        });
+        if($vbrand.length > 0) {
+          $.get('references.php', {vb: $vbrand}, function(data, textStatus, xhr) {
+            if(textStatus == 'success') {
+              $('#loader').show();
+              loadData(data);
+            }
+          });
+        }
+
       });
       // --------------------
     });
