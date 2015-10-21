@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +14,22 @@
         <div class="page-header">
           <h1> CRUD <small>(php - msyql - ajax)</small></h1>
         </div>
-        <button type="button" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Usuario</button>
+        <?php
+          include 'create.inc';
+          include 'read.inc';
+          include 'update.inc';
+        ?>
+        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#createuser"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Usuario</button>
         <br><br>
+
+        <?php if (isset($_SESSION['action'])): ?>
+          <div class="alert alert-success alert-dismissible alert-action" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Noticia!</strong> <?php echo $_SESSION['action']; ?>
+          </div>
+          <br><br>
+        <?php endif; unset($_SESSION['action']); ?>
+
         <table class="table table-striped table-bordered table-hover">
             <thead class="text-uppercase">
               <th>Id</th>
@@ -23,7 +38,11 @@
               <th>Actions</th>
             </thead>
             <tbody id="lstusers">
-
+              <tr>
+                <td colspan="4" style='text-align: center; background-color: white'>
+                  <img src="public/imgs/progress.gif" width="100px" />
+                </td>
+              </tr>
             </tbody>
         </table>
 
